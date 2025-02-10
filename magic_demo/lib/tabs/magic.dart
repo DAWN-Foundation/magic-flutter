@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:magic_demo/login.dart';
+import 'package:demo/login.dart';
 import 'package:magic_sdk/magic_sdk.dart';
 
 import '../alert.dart';
 
 class MagicPage extends StatefulWidget {
-  const MagicPage({Key? key}) : super(key: key);
+  const MagicPage({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect

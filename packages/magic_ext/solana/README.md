@@ -16,7 +16,7 @@ dependencies:
   magic_ext_solana: ^0.3.0
 
   # Magic Flutter SDK depends on crypto-please Solana SDK to construct instructions.  
-  solana: ^0.26.0
+  solana: ^0.31.2
 ```
 
 Run the following command to install dependencies

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:magic_demo/tabs/home.dart';
+import 'package:demo/tabs/home.dart';
 
 import 'package:magic_sdk/magic_sdk.dart';
 import 'package:magic_ext_oauth/magic_ext_oauth.dart';
@@ -7,7 +7,7 @@ import 'package:magic_ext_oauth/magic_ext_oauth.dart';
 import 'alert.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -59,11 +59,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextButton(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              foregroundColor: WidgetStateProperty.all<Color>(Colors.blue),
             ),
             onPressed: () async {
               var token =
-              await magic.auth.loginWithEmailOTP(email: emailInput.text);
+                  await magic.auth.loginWithEmailOTP(email: emailInput.text);
               showResult(context, 'token, $token');
 
               if (token.isNotEmpty) {
@@ -90,11 +90,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextButton(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              foregroundColor: WidgetStateProperty.all<Color>(Colors.blue),
             ),
             onPressed: () async {
-              var token =
-                  await magic.auth.loginWithSMS(phoneNumber: phoneNumberInput.text);
+              var token = await magic.auth
+                  .loginWithSMS(phoneNumber: phoneNumberInput.text);
               showResult(context, 'token, $token');
 
               if (token.isNotEmpty) {
@@ -129,16 +129,18 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextButton(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              foregroundColor: WidgetStateProperty.all<Color>(Colors.blue),
             ),
             onPressed: () async {
               var configuration = OAuthConfiguration(
-                  provider: OAuthProvider.values.firstWhere((element) => element.toString().toLowerCase() == 'OAuthProvider.$dropdownValue'.toLowerCase()),
+                  provider: OAuthProvider.values.firstWhere((element) =>
+                      element.toString().toLowerCase() ==
+                      'OAuthProvider.$dropdownValue'.toLowerCase()),
                   redirectURI: 'link.magic.demo://');
               var result = await magic.oauth.loginWithPopup(configuration);
 
-
-              if (result.magic!.userInfo!.email != null || result.magic!.idToken != null) {
+              if (result.magic!.userInfo!.email != null ||
+                  result.magic!.idToken != null) {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const HomePage()));
               }

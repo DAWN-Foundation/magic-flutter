@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:magic_demo/tabs/web3.dart';
-import 'package:magic_demo/tabs/tezos.dart';
-import 'package:magic_demo/tabs/solana.dart';
+import 'package:demo/tabs/web3.dart';
+import 'package:demo/tabs/solana.dart';
 import 'package:magic_sdk/magic_sdk.dart';
 
 import 'magic.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -29,29 +28,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-        title: const Text('Home'),
-        bottom: const TabBar(
-          tabs: [
-            Tab(icon: Icon(Icons.portrait)),
-            Tab(icon: Icon(Icons.account_balance_wallet_rounded)),
-          ]
-        )
-      ),
-      body: const TabBarView(
-        children: [
-          MagicPage(),
-          Web3Page(),
-          // TezosPage(),
-          // SolanaPage()
-        ]
-      ),
-    )
-    );
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: const Text('Home'),
+              bottom: const TabBar(tabs: [
+                Tab(icon: Icon(Icons.portrait)),
+                Tab(icon: Icon(Icons.account_balance_wallet_rounded)),
+              ])),
+          body: const TabBarView(children: [
+            MagicPage(),
+            Web3Page(),
+            SolanaPage(),
+          ]),
+        ));
   }
 }

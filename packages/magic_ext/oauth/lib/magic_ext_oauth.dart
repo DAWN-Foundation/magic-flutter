@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:flutter_web_auth/flutter_web_auth.dart';
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:magic_sdk/magic_sdk.dart';
 import 'package:magic_sdk/modules/base_module.dart';
 import 'package:magic_sdk/provider/rpc_provider.dart';
@@ -74,7 +74,7 @@ class OAuthExtension extends BaseModule {
         ? configuration.redirectURI.substring(0, index)
         : configuration.redirectURI;
 
-    return await FlutterWebAuth.authenticate(
+    return await FlutterWebAuth2.authenticate(
         url: uri.build().toString(), callbackUrlScheme: redirectURI);
   }
 

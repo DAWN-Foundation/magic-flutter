@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:magic_sdk/magic_sdk.dart';
 import 'package:magic_ext_solana/magic_ext_solana.dart';
-import 'package:magic_sdk/modules/user/user_response_type.dart';
+// import 'package:magic_sdk/modules/user/user_response_type.dart';
 import 'package:solana/solana.dart';
 
 class SolanaPage extends StatefulWidget {
@@ -42,32 +42,32 @@ class _SolanaPageState extends State<SolanaPage> {
         /// get public address
         ElevatedButton(
           onPressed: () async {
-            // Get public key
-            UserMetadata metadata = await magic.user.getMetadata();
+            // // Get public key
+            // UserMetadata metadata = await magic.user.getMetadata();
 
-            // Construct an instruction that sends token to itself
-            Ed25519HDPublicKey solanaWallet =
-                Ed25519HDPublicKey.fromBase58(metadata.publicAddress!);
-            var instruction = SystemInstruction.transfer(
-                fundingAccount: solanaWallet,
-                recipientAccount: solanaWallet,
-                lamports: 1);
+            // // Construct an instruction that sends token to itself
+            // Ed25519HDPublicKey solanaWallet =
+            //     Ed25519HDPublicKey.fromBase58(metadata.publicAddress!);
+            // var instruction = SystemInstruction.transfer(
+            //     fundingAccount: solanaWallet,
+            //     recipientAccount: solanaWallet,
+            //     lamports: 1);
 
-            // recentBlockhash
-            var recentBlockhash = await client.getRecentBlockhash();
+            // // recentBlockhash
+            // var recentBlockhash = await client.getRecentBlockhash();
 
-            // Message of instructions
-            var message = Message.only(instruction);
+            // // Message of instructions
+            // var message = Message.only(instruction);
 
-            // Sign Transaction Remotely using Magic Auth
-            var transactionSignature = await magic.solana.signTransaction(
-                recentBlockhash, message, instruction.accounts);
+            // // Sign Transaction Remotely using Magic Auth
+            // var transactionSignature = await magic.solana.signTransaction(
+            //     recentBlockhash, message, instruction.accounts);
 
-            // Create Base64 string from the signature
-            var signature =
-                await client.sendTransaction(transactionSignature.encode());
+            // // Create Base64 string from the signature
+            // var signature =
+            //     await client.sendTransaction(transactionSignature.encode());
 
-            print(signature);
+            // print(signature);
           },
           child: const Text('Sign Transaction'),
         ),

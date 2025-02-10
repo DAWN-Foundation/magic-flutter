@@ -11,11 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  magic_sdk:
-    path: ../../magic_sdk
-  webview_flutter: ^4.2.0
   # magic_sdk:
-  #  path: "../../magic_sdk"
+  #   path: ../../magic_sdk
+  magic_sdk:
+    git:
+      url: https://github.com/DAWN-Foundation/magic-flutter.git
+      ref: main
+      path: packages/magic_sdk
+  webview_flutter: ^4.2.0
 
 dev_dependencies:
   flutter_test:

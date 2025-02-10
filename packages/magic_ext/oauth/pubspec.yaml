@@ -12,8 +12,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # magic_sdk:
+  #  path: "../../magic_sdk"
   magic_sdk:
-   path: "../../magic_sdk"
+    git:
+      url: https://github.com/DAWN-Foundation/magic-flutter.git
+      ref: main
+      path: packages/magic_sdk
   package_info_plus: ^8.2.1
   uri: ^1.0.0
   crypto: ^3.0.1
